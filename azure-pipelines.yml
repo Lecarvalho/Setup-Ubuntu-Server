@@ -15,8 +15,8 @@ steps:
     sshEndpoint: 'pleyce.app'
     runOptions: 'commands'
     commands: |
-      mkdir /Workspace
-      chmod 777 /Workspace
+      sudo mkdir /Workspace
+      sudo chmod 777 /Workspace
     readyTimeout: '20000'
 - task: CopyFilesOverSSH@0
   inputs:
