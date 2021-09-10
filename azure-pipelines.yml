@@ -5,6 +5,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'pleyce.app'
+    sourceFolder: 'scripts'
+    contents: '**'
+    readyTimeout: '20000'
 - task: SSH@0
   inputs:
     sshEndpoint: 'pleyce.app'
