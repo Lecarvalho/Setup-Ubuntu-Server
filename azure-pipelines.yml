@@ -10,6 +10,14 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'pleyce.app'
+    runOptions: 'commands'
+    commands: |
+      mkdir /Workspace
+      chmod 777 /Workspace
+    readyTimeout: '20000'
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: 'pleyce.app'
