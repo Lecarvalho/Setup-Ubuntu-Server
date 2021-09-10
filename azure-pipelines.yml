@@ -9,18 +9,5 @@ steps:
   inputs:
     sshEndpoint: 'pleyce.app'
     runOptions: 'script'
-    scriptPath: 'scripts/create-workspace-dir.sh'
-    readyTimeout: '20000'
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: 'pleyce.app'
-    sourceFolder: 'scripts'
-    contents: '**'
-    targetFolder: '/Workspace'
-    readyTimeout: '20000'
-- task: SSH@0
-  inputs:
-    sshEndpoint: 'pleyce.app'
-    runOptions: 'script'
     scriptPath: 'scripts/setup-env.sh'
     readyTimeout: '20000'
