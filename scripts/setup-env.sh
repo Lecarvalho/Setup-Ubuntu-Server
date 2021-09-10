@@ -29,7 +29,7 @@ else
     sh create-workspace-dir.sh
 fi
 
-if service_exists docker; then
+if service_exists docker.service; then
     echo "docker already installed"
 else 
     sh install-docker.sh
