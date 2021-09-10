@@ -7,13 +7,13 @@ pool:
 steps:
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: 'pleyce.app'
+    sshEndpoint: $(sshEndpoint)
     sourceFolder: 'scripts'
     contents: '**'
     readyTimeout: '20000'
 - task: SSH@0
   inputs:
-    sshEndpoint: 'pleyce.app'
+    sshEndpoint: $(sshEndpoint)
     runOptions: 'script'
     scriptPath: 'scripts/setup-env.sh'
     failOnStdErr: false
