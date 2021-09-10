@@ -1,6 +1,6 @@
 service_exists() {
     local n=$1
-    if [[ $(systemctl list-units --all -t service --full --no-legend "$n.service" | sed 's/^\s*//g' | cut -f1 -d' ') == $n.service ]]; then
+    if service --status-all | grep -Fq $n; then
         return 0
     else
         return 1
@@ -8,18 +8,18 @@ service_exists() {
 }
 
 file_exists() {
-    if [ -f $n ]; then
-        return 1
-    else 
+    if [ -f $1 ]; then
         return 0
+    else 
+        return 1
     fi
 }
 
 directory_exists() {
     if [ -d $1 ]; then
-        return 1
-    else
         return 0
+    else
+        return 1
     fi
 }
 
@@ -29,7 +29,7 @@ else
     sh create-workspace-dir.sh
 fi
 
-if service_exists docker.service; then
+if service_exists docker; then
     echo "docker already installed"
 else 
     sh install-docker.sh
@@ -41,4 +41,4 @@ else
     sh install-docker-compose.sh
 fi
 
-sh open-ports.sh
+sh allow-ports.sh
