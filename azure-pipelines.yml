@@ -16,4 +16,5 @@ steps:
     sshEndpoint: 'pleyce.app'
     runOptions: 'script'
     scriptPath: 'scripts/setup-env.sh'
+    failOnStdErr: false
     readyTimeout: '20000'
