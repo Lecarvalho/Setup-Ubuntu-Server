@@ -41,4 +41,13 @@ else
     sh install-docker-compose.sh
 fi
 
+entropy=$(cat /proc/sys/kernel/random/entropy_avail)
+
+if [[ $entropy > 1000 ]]; then
+    echo "entropy has a good value: $entropy"
+else
+    echo "entropy is too slow ($entropy), need to fix it installing haveged"
+    sh install-haveged.sh
+fi
+
 sh allow-ports.sh
