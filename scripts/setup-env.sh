@@ -51,3 +51,5 @@ else
 fi
 
 sh allow-ports.sh
+
+sh configure-docker-network.sh
