@@ -5,16 +5,16 @@ steps:
 - script: |
     curl ifconfig.me
     
-# - task: CopyFilesOverSSH@0
-#   inputs:
-#     sshEndpoint: $(sshServiceConnectionName)
-#     sourceFolder: 'scripts'
-#     contents: '**'
-#     readyTimeout: '20000'
-# - task: SSH@0
-#   inputs:
-#     sshEndpoint: $(sshServiceConnectionName)
-#     runOptions: 'script'
-#     scriptPath: 'scripts/setup-env.sh'
-#     failOnStdErr: false
-#     readyTimeout: '20000'
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: $(sshServiceConnectionName)
+    sourceFolder: 'scripts'
+    contents: '**'
+    readyTimeout: '20000'
+- task: SSH@0
+  inputs:
+    sshEndpoint: $(sshServiceConnectionName)
+    runOptions: 'script'
+    scriptPath: 'scripts/setup-env.sh'
+    failOnStdErr: false
+    readyTimeout: '20000'
