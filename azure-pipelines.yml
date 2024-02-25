@@ -8,10 +8,22 @@ steps:
 #     sourceFolder: 'scripts'
 #     contents: '**'
 #     readyTimeout: '20000'
-- task: SSH@0
+
+# - script: |
+#     cd ~/.ssh
+#     ls
+# - task: SSH@0
+#   inputs:
+#     sshEndpoint: 'AWS EC2 VM - Vingtaine'
+#     runOptions: 'script'
+#     scriptPath: 'scripts/setup-env.sh'
+#     failOnStdErr: false
+#     readyTimeout: '20000'
+- task: InstallSSHKey@0
   inputs:
-    sshEndpoint: 'AWS EC2 VM - Vingtaine'
-    runOptions: 'script'
-    scriptPath: 'scripts/setup-env.sh'
-    failOnStdErr: false
-    readyTimeout: '20000'
+    knownHostsEntry: 'ec2-3-16-216-221.us-east-2.compute.amazonaws.com'
+    sshKeySecureFile: 'azure-pipelines'
+
+- script: |
+    cd ~/.ssh
+    ls
