@@ -27,6 +27,7 @@ steps:
 
 - script: |
     chmod 400 $(azurePipelinesPk.secureFilePath)
-    ssh -t -i $(azurePipelinesPk.secureFilePath) ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+    sudo ln -s $(caCertificate.secureFilePath) /.ssh/azure-pipelines
+    ssh -i /.ssh/azure-pipelines ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
     pwd
     ls
