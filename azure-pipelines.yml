@@ -12,8 +12,8 @@ steps:
 
 
 - script: |
-    ping ec2-3-16-216-221.us-east-2.compute.amazonaws.com -n 5
-    ping 3.16.216.221 -n 5
+    ping -c 5 ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+    ping -c 5 3.16.216.221
 # - task: SSH@0
 #   inputs:
 #     sshEndpoint: 'AWS EC2 VM - Vingtaine'
