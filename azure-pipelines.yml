@@ -2,12 +2,12 @@ pool:
   vmImage: ubuntu-latest
 
 steps:   
-# - task: CopyFilesOverSSH@0
-#   inputs:
-#     sshEndpoint: $(sshServiceConnectionName)
-#     sourceFolder: 'scripts'
-#     contents: '**'
-#     readyTimeout: '20000'
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: $(sshServiceConnectionName)
+    sourceFolder: 'scripts'
+    contents: '**'
+    readyTimeout: '20000'
 
 # - script: |
 #     cd ~/.ssh
@@ -20,14 +20,14 @@ steps:
 #     failOnStdErr: false
 #     readyTimeout: '20000'
 
-- task: DownloadSecureFile@1
-  name: 'azurePipelinesPk'
-  inputs:
-    secureFile: 'azure-pipelines'
+# - task: DownloadSecureFile@1
+#   name: 'azurePipelinesPk'
+#   inputs:
+#     secureFile: 'azure-pipelines'
 
-- script: |
-    chmod 400 $(azurePipelinesPk.secureFilePath)
-    sudo ln -s $(caCertificate.secureFilePath) /.ssh/azure-pipelines
-    ssh -i /.ssh/azure-pipelines ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
-    pwd
-    ls
+# - script: |
+#     chmod 400 $(azurePipelinesPk.secureFilePath)
+#     sudo ln -s $(caCertificate.secureFilePath) ~/.ssh/azure-pipelines
+#     ssh -i /.ssh/azure-pipelines ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+#     pwd
+#     ls
