@@ -12,7 +12,7 @@ steps:
 
 
 - script: |
-    ping ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+    ping ec2-3-16-216-221.us-east-2.compute.amazonaws.com
     ping 3.16.216.221
 # - task: SSH@0
 #   inputs:
