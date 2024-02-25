@@ -19,12 +19,12 @@ steps:
 #     scriptPath: 'scripts/setup-env.sh'
 #     failOnStdErr: false
 #     readyTimeout: '20000'
-- task: InstallSSHKey@0
+
+- task: DownloadSecureFile@1
   inputs:
-    knownHostsEntry: 'ec2-3-16-216-221.us-east-2.compute.amazonaws.com'
-    sshKeySecureFile: 'azure-pipelines'
+    secureFile: 'azure-pipelines'
 
 - script: |
-    ssh ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+    ssh -i azure-pipelines ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
     pwd
     ls
