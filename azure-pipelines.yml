@@ -25,6 +25,6 @@ steps:
     secureFile: 'azure-pipelines'
 
 - script: |
-    ssh -i azure-pipelines ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+    ssh -i ~/azure-pipelines ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
     pwd
     ls
