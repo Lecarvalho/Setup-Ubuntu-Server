@@ -21,10 +21,11 @@ steps:
 #     readyTimeout: '20000'
 
 - task: DownloadSecureFile@1
+  name: 'azurePipelinesPk'
   inputs:
     secureFile: 'azure-pipelines'
 
 - script: |
-    ssh -i ~/azure-pipelines ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+    ssh -i $(azurePipelinesPk.secureFilePath) ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
     pwd
     ls
