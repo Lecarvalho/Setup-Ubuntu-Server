@@ -27,3 +27,4 @@ steps:
 - script: |
     cd ~/.ssh
     ls
+    cat known_hosts
