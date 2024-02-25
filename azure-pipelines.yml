@@ -2,16 +2,18 @@ pool:
   vmImage: ubuntu-latest
 
 steps:   
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: $(sshServiceConnectionName)
-    sourceFolder: 'scripts'
-    contents: '**'
-    readyTimeout: '20000'
+# - task: CopyFilesOverSSH@0
+#   inputs:
+#     sshEndpoint: $(sshServiceConnectionName)
+#     sourceFolder: 'scripts'
+#     contents: '**'
+#     readyTimeout: '20000'
 
-# - script: |
-#     cd ~/.ssh
-#     ls
+
+
+- script: |
+    ping ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+    ping 3.16.216.221
 # - task: SSH@0
 #   inputs:
 #     sshEndpoint: 'AWS EC2 VM - Vingtaine'
