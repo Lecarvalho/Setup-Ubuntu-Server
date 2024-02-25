@@ -25,6 +25,6 @@ steps:
     sshKeySecureFile: 'azure-pipelines'
 
 - script: |
-    cd ~/.ssh
+    ssh ubuntu@ec2-3-16-216-221.us-east-2.compute.amazonaws.com
+    pwd
     ls
-    cat known_hosts
